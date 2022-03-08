@@ -24,6 +24,6 @@ switch (command) {
         break;
 }
 
-console.log(result.status);
+console.log(result.signal);
 
 process.exit(result.status)

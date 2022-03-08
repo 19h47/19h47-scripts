@@ -23,7 +23,7 @@ const manifestPlugin = new WebpackManifestPlugin({
 
 module.exports = {
 	output: {
-		path: resolve('/dist'),
+		path: resolve('dist'),
 		publicPath: process.env.PUBLIC_PATH,
 	},
 	externals: {
