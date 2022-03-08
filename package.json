@@ -13,7 +13,9 @@
   },
   "license": "MIT",
   "author": "Jérémy Levron <jeremylevron@19h47.fr> (https://19h47.fr)",
-  "bin": "./bin/19h47-scripts.js",
+  "bin": {
+    "19h47-scripts": "./bin/19h47-scripts.js"
+  },
   "dependencies": {
     "cross-spawn": "^7.0.3",
     "webpack": "^5.70.0",
