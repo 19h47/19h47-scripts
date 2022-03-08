@@ -17,6 +17,7 @@
     "19h47-scripts": "./bin/19h47-scripts.js"
   },
   "dependencies": {
+    "clean-webpack-plugin": "^4.0.0",
     "cross-spawn": "^7.0.3",
     "webpack": "^5.70.0",
     "webpack-merge": "^5.8.0"
