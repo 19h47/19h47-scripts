@@ -1,12 +1,11 @@
 /**
+ * Webpack config development
  *
  * @file webpack.config.development.js
  * @author Jérémy Levron <jeremylevron@19h47.fr> (https://19h47.fr)
  */
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
-console.log('TEST');
 
 module.exports = {
 	mode: 'development',
@@ -15,7 +14,7 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				test: /\.scss$/,
+				test: /\.css$/,
 				exclude: /node_modules/,
 				use: [
 					{
@@ -28,21 +27,13 @@ module.exports = {
 						loader: 'css-loader',
 						options: {
 							sourceMap: true,
+							importLoaders: 1,
 						},
 					},
 					{
 						loader: 'postcss-loader',
 						options: {
 							sourceMap: true,
-						},
-					},
-					{
-						loader: 'sass-loader',
-						options: {
-							sassOptions: {
-								sourceMap: true,
-								precision: 10,
-							},
 						},
 					},
 				],

@@ -4,8 +4,6 @@ const common = require('./webpack.config.common');
 const production = require('./webpack.config.production');
 const development = require('./webpack.config.development');
 
-console.log('TEST');
-
 module.exports = (env, argv) => {
 	switch (argv.mode) {
 		case 'development':
