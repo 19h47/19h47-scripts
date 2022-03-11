@@ -11,6 +11,8 @@ const { resolve } = require('./webpack.utils');
 module.exports = {
 	'@': resolve('src'),
 
+	vue: 'vue/dist/vue.esm.js',
+
 	// scripts
 	scripts: resolve('src/scripts'),
 	abstracts: resolve('src/scripts/abstracts'),
