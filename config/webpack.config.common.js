@@ -16,6 +16,7 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 const WebpackNotifierPlugin = require('webpack-notifier');
+const { VueLoaderPlugin } = require('vue-loader');
 
 // Webpack utils
 const { resolve } = require('./webpack.utils');
@@ -46,6 +47,7 @@ module.exports = {
 		new ESLintPlugin({
 			baseConfig: eslintOptions,
 		}),
+		new VueLoaderPlugin(),
 		new SpriteLoaderPlugin({ plainSprite: true }),
 		new WebpackNotifierPlugin({
 			title: 'Webpack',

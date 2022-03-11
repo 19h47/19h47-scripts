@@ -7,6 +7,7 @@
 
 const { presets, plugins } = require('../.babelrc');
 
+// Webpack Utils
 const { resolve } = require('./webpack.utils');
 
 module.exports = [
@@ -22,6 +23,7 @@ module.exports = [
 			plugins,
 		},
 	},
+	{ test: /\.vue$/, loader: require.resolve('vue-loader') },
 	{
 		test: /\.(woff2?|eot|ttf|otf|woff|svg)?$/,
 		exclude: [/img/, /icons/],
