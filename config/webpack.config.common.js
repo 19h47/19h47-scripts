@@ -33,6 +33,12 @@ module.exports = {
 	resolve: {
 		alias,
 	},
+	optimization: {
+		splitChunks: {
+			chunks: 'all',
+			name: 'vendors',
+		},
+	},
 	plugins: [
 		new WebpackManifestPlugin({
 			publicPath: 'dist/',
