@@ -1,29 +1,33 @@
 #!/usr/bin/env node
+
 const spawn = require('cross-spawn');
-
 const args = process.argv.slice(2);
-const index = args.findIndex(x => ['prod', 'dev'].includes(x));
 
-const config = require.resolve(`../config/webpack.config.js`);
+const scriptIndex = args.findIndex(x => ['prod', 'dev'].includes(x));
+const script = scriptIndex === -1 ? args[0] : args[scriptIndex];
 
+const config = require.resolve('../config/webpack.config.js');
 
-const command = index === -1 ? args[0] : args[index];
-
-if (!command) {
-    throw new Error(`Unknown or missing command.`);
+if (!script) {
+	throw new Error(`Unknown or missing script.`);
 }
 
 let result = '';
 
-switch (command) {
-    case 'dev':
-        result = spawn.sync(
-            "webpack",
-            ["--mode=development", "--config", config],
-        );
-        break;
+if ('dev' === script) {
+	result = spawn.sync('webpack', ['--mode=development', '--config', config, '--progress'], {
+		stdio: 'inherit',
+	});
 }
 
-console.log(result.signal);
+if ('prod' === script) {
+	result = spawn.sync('webpack', ['--mode=production', '--config', config, '--progress'], {
+		stdio: 'inherit',
+	});
+}
 
-process.exit(result.status)
+if (result.signal) {
+	process.exit(1);
+}
+
+process.exit(result.status);

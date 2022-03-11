@@ -1,16 +1,23 @@
+/**
+ * Webpack config
+ *
+ * @file webpack.config.js
+ * @author Jérémy Levron <jeremylevron@19h47.fr> (https://19h47.fr)
+ */
+
 const { merge } = require('webpack-merge');
 
 const common = require('./webpack.config.common');
 const production = require('./webpack.config.production');
 const development = require('./webpack.config.development');
 
-module.exports = (env, argv) => {
-	switch (argv.mode) {
+module.exports = (env, { mode }) => {
+	switch (mode) {
 		case 'development':
-			return merge(common, development, { mode: argv.mode });
+			return merge(common, development, { mode });
 		case 'production':
-			return merge(common, production, { mode: argv.mode });
+			return merge(common, production, { mode });
 		default:
-			throw new Error(`Trying to use an unknown mode, ${argv.mode}`);
+			throw new Error(`Trying to use an unknown mode, ${mode}`);
 	}
 };
