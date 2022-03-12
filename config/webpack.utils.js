@@ -19,7 +19,7 @@ const useTailwind = fs.existsSync(path.join(cwd, 'tailwind.config.js'));
 const resolve = dir => path.join(cwd, dir);
 
 const getStyleLoader = (sourceMap = true) => {
-	let loaders = {
+	const loaders = {
 		test: !useTailwind ? /\.scss$/ : /\.css$/,
 		exclude: /node_modules/,
 		use: [
@@ -51,18 +51,15 @@ const getStyleLoader = (sourceMap = true) => {
 	};
 
 	if (!useTailwind) {
-		loaders = {
-			...loaders,
-			...{
-				loader: 'sass-loader',
-				options: {
-					sassOptions: {
-						sourceMap,
-						precision: 10,
-					},
+		loaders.use.push({
+			loader: 'sass-loader',
+			options: {
+				sassOptions: {
+					sourceMap,
+					precision: 10,
 				},
 			},
-		};
+		});
 	}
 
 	return loaders;
