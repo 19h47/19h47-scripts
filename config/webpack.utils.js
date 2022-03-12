@@ -22,42 +22,47 @@ const getStyleLoader = (sourceMap = true) => {
 	const loaders = {
 		test: !useTailwind ? /\.scss$/ : /\.css$/,
 		exclude: /node_modules/,
-		use: [{
-			loader: MiniCssExtractPlugin.loader,
-			options: {
-				publicPath: '../',
-			},
-		},
-		{
-			loader: require.resolve('css-loader'),
-			options: {
-				sourceMap,
-				importLoaders: 1,
-			},
-		},
-		{
-			loader: require.resolve('postcss-loader'),
-			options: {
-				sourceMap,
-				postcssOptions: {
-					plugins: !useTailwind
-						? ['postcss-object-fit-images', 'postcss-100vh-fix', 'autoprefixer']
-						: ['postcss-import', 'tailwindcss', 'autoprefixer'],
+		use: [
+			{
+				loader: MiniCssExtractPlugin.loader,
+				options: {
+					publicPath: '../',
 				},
 			},
-		}],
+			{
+				loader: require.resolve('css-loader'),
+				options: {
+					sourceMap,
+					importLoaders: 1,
+				},
+			},
+			{
+				loader: require.resolve('postcss-loader'),
+				options: {
+					sourceMap,
+					postcssOptions: {
+						plugins: !useTailwind
+							? ['postcss-object-fit-images', 'postcss-100vh-fix', 'autoprefixer']
+							: ['postcss-import', 'tailwindcss', 'autoprefixer'],
+					},
+				},
+			},
+		],
 	};
 
 	if (!useTailwind) {
-		loaders.push({
-			loader: 'sass-loader',
-			options: {
-				sassOptions: {
-					sourceMap,
-					precision: 10,
+		loaders = {
+			...loaders,
+			...{
+				loader: 'sass-loader',
+				options: {
+					sassOptions: {
+						sourceMap,
+						precision: 10,
+					},
 				},
 			},
-		});
+		};
 	}
 
 	return loaders;
