@@ -17,24 +17,20 @@ const purgecssWordpress = require('purgecss-with-wordpress');
 // Webpack Utils
 const { resolve, useTailwind, getStyleLoader } = require('./webpack.utils');
 
-module.exports = {
-	mode: 'production',
-	output: {
-		filename: 'js/[name].[chunkhash:8].js',
-	},
-	module: {
-		rules: [getStyleLoader(false)],
-	},
-	plugins: [
-		new CleanWebpackPlugin({
-			cleanOnceBeforeBuildPatterns: [resolve('dist')],
-		}),
-		new MiniCssExtractPlugin({
-			filename: 'css/main.[chunkhash:8].css',
-			chunkFilename: "css/[id].[chunkhash:8].css",
-		}),
-		new CompressionPlugin(),
-		!useTailwind && new PurgecssPlugin({
+const plugins = [
+	new CleanWebpackPlugin({
+		cleanOnceBeforeBuildPatterns: [resolve('dist')],
+	}),
+	new MiniCssExtractPlugin({
+		filename: 'css/main.[chunkhash:8].css',
+		chunkFilename: "css/[id].[chunkhash:8].css",
+	}),
+	new CompressionPlugin(),
+];
+
+if (!useTailwind) {
+	plugins.push(
+		new PurgecssPlugin({
 			paths: glob.sync(
 				[resolve('inc/**/*'), resolve('src/scripts/**/*'), resolve('views/**/*')],
 				{
@@ -43,6 +39,17 @@ module.exports = {
 			),
 			safelist: purgecssWordpress.safelist,
 			defaultExtractor: content => content.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || [],
-		}),
-	]
+		})
+	)
+}
+
+module.exports = {
+	mode: 'production',
+	output: {
+		filename: 'js/[name].[chunkhash:8].js',
+	},
+	module: {
+		rules: [getStyleLoader(false)],
+	},
+	plugins
 };
