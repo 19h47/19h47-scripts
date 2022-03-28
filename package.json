@@ -21,7 +21,6 @@
 		"prod": "webpack --mode=production --config config/webpack.config.js"
 	},
 	"dependencies": {
-		"@19h47/prettier-config": "^1.0.0",
 		"@babel/core": "^7.17.7",
 		"@babel/eslint-parser": "^7.17.0",
 		"@babel/plugin-proposal-class-properties": "^7.16.7",
