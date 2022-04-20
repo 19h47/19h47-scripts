@@ -40,6 +40,10 @@ module.exports = {
 			name: 'vendors',
 		},
 	},
+	externals: {
+		jquery: 'jQuery',
+		$: 'jQuery',
+	},
 	plugins: [
 		new WebpackManifestPlugin({
 			publicPath: 'dist/',
