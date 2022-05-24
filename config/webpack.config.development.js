@@ -6,21 +6,21 @@
  */
 
 // Webpack Plugins
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 // Webpack Utils
-const { getStyleLoader } = require('./webpack.utils');
+const { getStyleLoader } = require("./webpack.utils");
 
 module.exports = {
-	mode: 'development',
-	devtool: 'source-map',
+	mode: "development",
+	devtool: "source-map",
 	watch: true,
 	module: {
 		rules: [getStyleLoader()],
 	},
 	plugins: [
 		new MiniCssExtractPlugin({
-			filename: 'css/[name].css',
+			filename: "css/[name].css",
 		}),
 	],
 };

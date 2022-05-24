@@ -32,7 +32,7 @@ if (!useTailwind) {
 	plugins.push(
 		new PurgecssPlugin({
 			paths: glob.sync(
-				[resolve('inc/**/*'), resolve('src/scripts/**/*'), resolve('views/**/*')],
+				[resolve('inc/**/*'), resolve('src/scripts/**/*'), resolve('src/img/**/*'), resolve('views/**/*')],
 				{
 					nodir: true,
 				},
