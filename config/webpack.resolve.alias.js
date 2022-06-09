@@ -36,4 +36,5 @@ module.exports = {
 	gif: resolve('src/img/gif'),
 	svg: resolve('src/img/svg'),
 	icons: resolve('src/icons'),
+	videos: resolve('src/videos'),
 };

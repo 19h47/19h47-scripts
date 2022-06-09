@@ -1,6 +1,6 @@
 {
 	"name": "@19h47/scripts",
-	"version": "0.0.43-beta",
+	"version": "0.0.44-beta",
 	"description": "Configuration and scripts",
 	"keywords": [],
 	"homepage": "https://github.com/19h47/19h47-scripts#readme",
@@ -47,6 +47,7 @@
 		"eslint-plugin-node": "^11.1.0",
 		"eslint-plugin-promise": "^6.0.0",
 		"eslint-webpack-plugin": "^3.1.1",
+		"file-loader": "^6.2.0",
 		"glob-all": "^3.3.0",
 		"image-webpack-loader": "^8.1.0",
 		"mini-css-extract-plugin": "^2.6.0",
