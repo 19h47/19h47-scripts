@@ -44,4 +44,4 @@ tailwind.config.json
 
 ## Inspiration
 
-This is inspired by [`react-scripts`](https://github.com/facebook/create-react-app/tree/main/packages/react-scripts) and [`kcd-scripts`](https://raw.githubusercontent.com/kentcdodds/kcd-scripts).
+This is inspired by [`react-scripts`](https://github.com/facebook/create-react-app/tree/main/packages/react-scripts) and [`kcd-scripts`](https://github.com/kentcdodds/kcd-scripts).
