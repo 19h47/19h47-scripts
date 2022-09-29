@@ -7,17 +7,14 @@
 
 const fs = require('fs');
 const path = require('path');
+const { merge } = require('webpack-merge');
 
 const cwd = path.resolve(process.cwd());
 
-const { merge } = require('webpack-merge');
+const useConfig = fs.existsSync(path.join(cwd, '19h47-scripts.config.js'));
 
-if (fs.existsSync(path.join(cwd, '19h47-scripts.config.js'))) {
-	fs.writeFileSync(path.join(cwd, '19h47-scripts.config.js'), JSON.stringify({}))
-}
-
-// eslint-disable-next-line import/no-unresolved
-const config = require('19h47-scripts.config.js')
+// eslint-disable-next-line import/no-dynamic-require
+const config = useConfig ? require(path.join(cwd, '19h47-scripts.config.js')) : {}
 
 const common = require('./webpack.config.common');
 const production = require('./webpack.config.production');
