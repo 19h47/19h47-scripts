@@ -33,13 +33,13 @@ if (!useTailwind) {
 		new PurgecssPlugin({
 			paths: glob.sync(
 				[
-					resolve("app/**/*"), // Bedrock
+					resolve("app/**/*"), // Sage 9
 					resolve("inc/**/*"),
 					resolve("includes/**/*"),
 					resolve("src/scripts/**/*"),
 					resolve("src/img/**/*"),
 					resolve("views/**/*"),
-					resolve("ressources/views/**/*"), // Bedrock
+					resolve("resources/views/**/*"), // Sage 9
 				],
 				{
 					nodir: true,
