@@ -1,6 +1,6 @@
 {
 	"name": "@19h47/scripts",
-	"version": "0.0.51-beta",
+	"version": "0.0.52-beta",
 	"description": "Configuration and scripts",
 	"keywords": [],
 	"homepage": "https://github.com/19h47/19h47-scripts#readme",
@@ -34,6 +34,7 @@
 		"babel-loader": "^8.2.5",
 		"clean-webpack-plugin": "^4.0.0",
 		"compression-webpack-plugin": "^10.0.0",
+		"copy-webpack-plugin": "^11.0.0",
 		"core-js": "^3.26.1",
 		"cross-spawn": "^7.0.3",
 		"css-loader": "^6.7.2",
