@@ -45,6 +45,7 @@ module.exports = {
 	},
 	plugins: [
 		new CopyPlugin({
+			context: resolve(__dirname, "static"),
 			patterns: [{ from: resolve("static") }],
 		}),
 		new WebpackManifestPlugin({
