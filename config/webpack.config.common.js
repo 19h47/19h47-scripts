@@ -6,6 +6,9 @@
  */
 
 const fs = require('fs');
+const path = require('path');
+
+const cwd = path.resolve(process.cwd());
 
 // Webpack plugins
 const CopyPlugin = require("copy-webpack-plugin");
@@ -24,6 +27,32 @@ const { resolve } = require("./webpack.utils");
 
 // Options
 const eslintOptions = require("../.eslintrc");
+
+const plugins = [
+	new WebpackManifestPlugin({
+		publicPath: "dist/",
+	}),
+	new ESLintPlugin({
+		baseConfig: eslintOptions,
+	}),
+	new VueLoaderPlugin(),
+	new SpriteLoaderPlugin({ plainSprite: true }),
+	new WebpackNotifierPlugin({
+		title: "Webpack",
+		excludeWarnings: true,
+		alwaysNotify: true,
+	}),
+];
+
+const staticExists = fs.existsSync(path.join(cwd, 'static'));
+
+if (staticExists) {
+	plugins.push(new CopyPlugin({
+		patterns: [{
+			from: resolve("static")
+		}],
+	}))
+}
 
 module.exports = {
 	module: {
@@ -45,25 +74,5 @@ module.exports = {
 		jquery: "jQuery",
 		$: "jQuery",
 	},
-	plugins: [
-		fs.existsSync(resolve("static")) && new CopyPlugin({
-			patterns: [{
-				context: resolve("static"),
-				from: resolve("static")
-			}],
-		}),
-		new WebpackManifestPlugin({
-			publicPath: "dist/",
-		}),
-		new ESLintPlugin({
-			baseConfig: eslintOptions,
-		}),
-		new VueLoaderPlugin(),
-		new SpriteLoaderPlugin({ plainSprite: true }),
-		new WebpackNotifierPlugin({
-			title: "Webpack",
-			excludeWarnings: true,
-			alwaysNotify: true,
-		}),
-	],
+	plugins
 };
