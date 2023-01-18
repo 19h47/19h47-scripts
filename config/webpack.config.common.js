@@ -5,6 +5,8 @@
  * @author Jérémy Levron <jeremylevron@19h47.fr> (https://19h47.fr)
  */
 
+const fs = require('fs');
+
 // Webpack plugins
 const CopyPlugin = require("copy-webpack-plugin");
 const ESLintPlugin = require("eslint-webpack-plugin");
@@ -44,7 +46,7 @@ module.exports = {
 		$: "jQuery",
 	},
 	plugins: [
-		new CopyPlugin({
+		fs.existsSync(resolve("static")) && new CopyPlugin({
 			patterns: [{
 				context: resolve("static"),
 				from: resolve("static")
