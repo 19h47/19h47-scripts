@@ -5,6 +5,8 @@
  * @author Jérémy Levron <jeremylevron@19h47.fr> (https://19h47.fr)
  */
 
+const path = require('path');
+
 // Webpack plugins
 const CopyPlugin = require("copy-webpack-plugin");
 const ESLintPlugin = require("eslint-webpack-plugin");
@@ -45,9 +47,8 @@ module.exports = {
 	},
 	plugins: [
 		new CopyPlugin({
-
 			patterns: [{
-				context: resolve(__dirname, "static"),
+				context: path.resolve(process.cwd(), "static"),
 				from: resolve("static")
 			}],
 		}),
