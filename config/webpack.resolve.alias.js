@@ -14,6 +14,7 @@ module.exports = {
 	vue: 'vue/dist/vue.esm.js',
 
 	// scripts
+	animations: resolve('src/animations'),
 	scripts: resolve('src/scripts'),
 	abstracts: resolve('src/scripts/abstracts'),
 	common: resolve('src/scripts/common'),
