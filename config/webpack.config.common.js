@@ -70,7 +70,6 @@ module.exports = {
 			name: "vendors",
 			minSize: 0,
 			minChunks: 3,
-			test: /node_modules/,
 		},
 	},
 	externals: {
