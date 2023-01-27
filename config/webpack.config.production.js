@@ -11,7 +11,7 @@ const glob = require("glob-all");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CompressionPlugin = require("compression-webpack-plugin");
-const PurgecssPlugin = require("purgecss-webpack-plugin");
+const { PurgeCSSPlugin } = require("purgecss-webpack-plugin");
 const purgecssWordpress = require("purgecss-with-wordpress");
 
 // Webpack Utils
@@ -30,7 +30,7 @@ const plugins = [
 
 if (!useTailwind) {
 	plugins.push(
-		new PurgecssPlugin({
+		new PurgeCSSPlugin({
 			paths: glob.sync(
 				[
 					resolve("app/**/*"), // Sage 9
