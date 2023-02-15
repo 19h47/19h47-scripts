@@ -42,17 +42,8 @@ const getStyleLoader = (sourceMap = true) => {
 					sourceMap,
 					postcssOptions: {
 						plugins: !useTailwind
-							? [
-									"postcss-100vh-fix",
-									"autoprefixer",
-									"production" === process.env.NODE_ENV ? "cssnano" : "",
-							  ]
-							: [
-									"postcss-import",
-									"tailwindcss",
-									"autoprefixer",
-									"production" === process.env.NODE_ENV ? "cssnano" : "",
-							  ],
+							? ["postcss-100vh-fix", "autoprefixer", "cssnano"]
+							: ["postcss-import", "tailwindcss", "autoprefixer", "cssnano"],
 					},
 				},
 			},

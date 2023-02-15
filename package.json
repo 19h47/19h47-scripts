@@ -1,6 +1,6 @@
 {
 	"name": "@19h47/scripts",
-	"version": "0.0.67-beta",
+	"version": "0.0.68-beta",
 	"description": "Configuration and scripts",
 	"keywords": [],
 	"homepage": "https://github.com/19h47/19h47-scripts#readme",
@@ -18,7 +18,7 @@
 	},
 	"scripts": {
 		"dev": "webpack --mode=development --config config/webpack.config.js",
-		"prod": "cross-env NODE_ENV=production webpack --mode=production --config config/webpack.config.js"
+		"prod": "webpack --mode=production --config config/webpack.config.js"
 	},
 	"dependencies": {
 		"@babel/core": "^7.20.12",
@@ -36,7 +36,6 @@
 		"compression-webpack-plugin": "^10.0.0",
 		"copy-webpack-plugin": "^11.0.0",
 		"core-js": "^3.28.0",
-		"cross-env": "^7.0.3",
 		"cross-spawn": "^7.0.3",
 		"css-loader": "^6.7.3",
 		"cssnano": "^5.1.14",
