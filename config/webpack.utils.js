@@ -45,13 +45,13 @@ const getStyleLoader = (sourceMap = true) => {
 							? [
 									"postcss-100vh-fix",
 									"autoprefixer",
-									'production' === process.env.NODE_ENV ? "cssnano" : "",
+									"production" === process.env.NODE_ENV ? "cssnano" : "",
 							  ]
 							: [
 									"postcss-import",
 									"tailwindcss",
 									"autoprefixer",
-									'production' === process.env.NODE_ENV ? "cssnano" : "",
+									"production" === process.env.NODE_ENV ? "cssnano" : "",
 							  ],
 					},
 				},
