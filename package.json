@@ -53,7 +53,6 @@
 		"image-webpack-loader": "^8.1.0",
 		"mini-css-extract-plugin": "^2.7.5",
 		"postcss": "^8.4.21",
-		"postcss-100vh-fix": "^1.0.2",
 		"postcss-import": "^15.1.0",
 		"postcss-loader": "^7.1.0",
 		"purgecss-webpack-plugin": "^5.0.0",
