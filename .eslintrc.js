@@ -1,19 +1,19 @@
 const rules = {
-	'arrow-parens': ['error', 'as-needed'],
-	'no-console': 'off',
-	'no-debugger': 'production' === process.env.NODE_ENV ? 'error' : 'off',
-	'no-tabs': 0,
-	indent: ['error', 'tab', { SwitchCase: 1, ignoredNodes: ['TemplateLiteral'] }],
-	'template-curly-spacing': ['off'],
-	'no-param-reassign': ['error', { props: false }],
-	yoda: [2, 'always'],
-	'import/no-named-as-default': 0,
+	"arrow-parens": ["error", "as-needed"],
+	"no-console": "off",
+	"no-debugger": "production" === process.env.NODE_ENV ? "error" : "off",
+	"no-tabs": 0,
+	indent: ["error", "tab", { SwitchCase: 1, ignoredNodes: ["TemplateLiteral"] }],
+	"template-curly-spacing": ["off"],
+	"no-param-reassign": ["error", { props: false }],
+	yoda: [2, "always"],
+	"import/no-named-as-default": 0,
 	// Weird rule that is triggered on every function with name 'callback' or 'cb'
 	// Added: https://github.com/standard/eslint-plugin-standard/issues/12
 	// Maybe someday it will be removed: https://github.com/standard/eslint-plugin-standard/issues/27
-	'standard/no-callback-literal': 'off',
-	'import/no-anonymous-default-export': [
-		'error',
+	"standard/no-callback-literal": "off",
+	"import/no-anonymous-default-export": [
+		"error",
 		{
 			allowArray: false,
 			allowArrowFunction: false,
@@ -32,18 +32,18 @@ module.exports = {
 		node: true,
 		browser: true,
 	},
-	extends: ['standard', 'airbnb-base', 'prettier'],
+	extends: ["airbnb-base", "prettier"],
 	rules,
-	parser: '@babel/eslint-parser',
+	parser: "@babel/eslint-parser",
 	parserOptions: {
-		sourceType: 'module',
+		sourceType: "module",
 		allowImportExportEverywhere: true,
-		requireConfigFile: false
+		requireConfigFile: false,
 	},
 	settings: {
-		'import/resolver': {
+		"import/resolver": {
 			webpack: {
-				config: require.resolve('./config/webpack.config.common.js'),
+				config: require.resolve("./config/webpack.config.common.js"),
 			},
 		},
 	},
