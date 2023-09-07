@@ -55,6 +55,7 @@ if (staticExists) {
 }
 
 module.exports = {
+	target: ['web', 'es2017'],
 	module: {
 		rules,
 	},
