@@ -45,10 +45,7 @@ if (!useTailwind) {
 					nodir: true,
 				}
 			),
-			safelist: [
-				...purgecssWordpress.safelist,
-				/select2/
-			],
+			safelist: [...purgecssWordpress.safelist, /select2/],
 			defaultExtractor: content => content.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || [],
 		})
 	);
