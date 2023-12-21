@@ -48,15 +48,6 @@ module.exports = [
 		],
 	},
 	{
-		test: /\.svg$/,
-		exclude: [/fonts/, /icons/],
-		type: 'asset/resource',
-		generator: {
-			filename: 'img/svg/[name][ext]',
-		},
-		use: 'svgo-loader',
-	},
-	{
 		test: /\.(mp4|webm|ogg|mp3|wav|flac|aac|ogv)(\?.*)?$/,
 		use: [
 			{
@@ -71,62 +62,8 @@ module.exports = [
 		],
 	},
 	{
-		test: /\.(gif)$/i,
-		exclude: [/animations/],
-		type: 'asset/resource',
-		generator: {
-			filename: 'img/gif/[name][ext]',
-		},
-		use: [
-			{
-				loader: require.resolve('image-webpack-loader'),
-				options: {
-					gifsicle: {
-						interlaced: false,
-					},
-				},
-			},
-		],
-	},
-	{
-		test: /\.(png)$/i,
-		exclude: [/animations/],
-		type: 'asset/resource',
-		generator: {
-			filename: 'img/png/[name][ext]',
-		},
-		use: [
-			{
-				loader: 'image-webpack-loader',
-				options: {
-					optipng: {
-						enabled: false,
-					},
-					pngquant: {
-						quality: [0.65, 0.9],
-						speed: 4,
-					},
-				},
-			},
-		],
-	},
-	{
-		test: /\.(jpe?g)$/i,
-		exclude: [/animations/],
-		type: 'asset/resource',
-		generator: {
-			filename: 'img/jpg/[name][ext]',
-		},
-		use: [
-			{
-				loader: 'image-webpack-loader',
-				options: {
-					mozjpeg: {
-						progressive: true,
-						quality: [65],
-					},
-				},
-			},
-		],
+		test: /\.(jpe?g|png|gif|svg)$/i,
+		type: "asset",
+		exclude: [/fonts/, /icons/, /animations/],
 	},
 ];
