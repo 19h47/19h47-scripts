@@ -66,7 +66,7 @@ module.exports = [
 		exclude: [/fonts/, /icons/],
 		type: 'asset',
 		generator: {
-			filename: 'img/svg/[name][ext]',
+			filename: 'img/svg/[name][hash][ext]',
 		},
 	},
 	{
