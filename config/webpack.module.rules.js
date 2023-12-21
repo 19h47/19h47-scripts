@@ -64,7 +64,7 @@ module.exports = [
 	{
 		test: /\.svg$/,
 		exclude: [/fonts/, /icons/],
-		type: 'asset',
+		type: 'asset/ressource',
 		generator: {
 			filename: 'img/svg/[name][ext]',
 		},
@@ -72,7 +72,7 @@ module.exports = [
 	{
 		test: /\.(gif)$/i,
 		exclude: [/animations/],
-		type: 'asset',
+		type: 'asset/ressource',
 		generator: {
 			filename: 'img/gif/[name][ext]',
 		},
@@ -80,7 +80,7 @@ module.exports = [
 	{
 		test: /\.(png)$/i,
 		exclude: [/animations/],
-		type: 'asset',
+		type: 'asset/ressource',
 		generator: {
 			filename: 'img/png/[name][ext]',
 		},
@@ -88,7 +88,7 @@ module.exports = [
 	{
 		test: /\.(jpe?g)$/i,
 		exclude: [/animations/],
-		type: 'asset',
+		type: 'asset/ressource',
 		generator: {
 			filename: 'img/jpg/[name][ext]',
 		},
