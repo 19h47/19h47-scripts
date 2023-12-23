@@ -18,6 +18,7 @@ const SpriteLoaderPlugin = require("svg-sprite-loader/plugin");
 const WebpackNotifierPlugin = require("webpack-notifier");
 const { VueLoaderPlugin } = require("vue-loader");
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 
 // Webpack Options
 const alias = require("./webpack.resolve.alias");
@@ -73,7 +74,9 @@ module.exports = {
 			minSize: 0,
 			minChunks: 3,
 		},
+		minimize: true,
 		minimizer: [
+			new TerserPlugin(),
 			new ImageMinimizerPlugin({
 				minimizer: {
 					implementation: ImageMinimizerPlugin.imageminMinify,
