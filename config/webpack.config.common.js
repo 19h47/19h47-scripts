@@ -5,8 +5,8 @@
  * @author Jérémy Levron <jeremylevron@19h47.fr> (https://19h47.fr)
  */
 
-const fs = require("fs");
-const path = require("path");
+const fs = require('fs');
+const path = require('path');
 
 const cwd = path.resolve(process.cwd());
 
@@ -46,22 +46,18 @@ const plugins = [
 	}),
 ];
 
-const staticExists = fs.existsSync(path.join(cwd, "static"));
+const staticExists = fs.existsSync(path.join(cwd, 'static'));
 
 if (staticExists) {
-	plugins.push(
-		new CopyPlugin({
-			patterns: [
-				{
-					from: resolve("static"),
-				},
-			],
-		})
-	);
+	plugins.push(new CopyPlugin({
+		patterns: [{
+			from: resolve("static")
+		}],
+	}))
 }
 
 module.exports = {
-	target: ["web", "es2017"],
+	target: ['web', 'es2017'],
 	module: {
 		rules,
 	},
@@ -88,8 +84,9 @@ module.exports = {
 						// Lossless optimization with custom option
 						// Feel free to experiment with options for better result for you
 						plugins: [
-							["pngquant", { quality: [0.65, 0.9], speed: 4 }],
-							["mozjpeg", { quality: 70 }],
+							["gifsicle", { interlaced: true }],
+							['jpegtran', { progressive: true }],
+							["optipng", { optimizationLevel: 5 }],
 							// Svgo configuration here https://github.com/svg/svgo#configuration
 							[
 								"svgo",
@@ -102,7 +99,9 @@ module.exports = {
 													removeViewBox: false,
 													addAttributesToSVGElement: {
 														params: {
-															attributes: [{ xmlns: "http://www.w3.org/2000/svg" }],
+															attributes: [
+																{ xmlns: "http://www.w3.org/2000/svg" },
+															],
 														},
 													},
 												},
@@ -114,13 +113,12 @@ module.exports = {
 						],
 					},
 				},
-				loader: false,
 			}),
-		],
+		]
 	},
 	externals: {
 		jquery: "jQuery",
 		$: "jQuery",
 	},
-	plugins,
+	plugins
 };
