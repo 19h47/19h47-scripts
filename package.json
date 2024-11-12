@@ -1,6 +1,6 @@
 {
 	"name": "@19h47/scripts",
-	"version": "0.0.0-beta.22",
+	"version": "0.0.0-beta.23",
 	"description": "Configuration and scripts",
 	"keywords": [],
 	"homepage": "https://github.com/19h47/19h47-scripts#readme",
@@ -42,6 +42,11 @@
 		"eslint-webpack-plugin": "^4.2.0",
 		"file-loader": "^6.2.0",
 		"glob-all": "^3.3.1",
+		"image-minimizer-webpack-plugin": "^4.1.0",
+		"imagemin": "^9.0.0",
+		"imagemin-mozjpeg": "^10.0.0",
+		"imagemin-pngquant": "^10.0.0",
+		"imagemin-svgo": "^11.0.1",
 		"mini-css-extract-plugin": "^2.9.2",
 		"postcss": "^8.4.49",
 		"postcss-import": "^16.1.0",
@@ -63,12 +68,5 @@
 		"webpack-manifest-plugin": "5.0.0",
 		"webpack-merge": "^6.0.1",
 		"webpack-notifier": "^1.15.0"
-	},
-	"devDependencies": {
-		"image-minimizer-webpack-plugin": "^4.1.0",
-		"imagemin": "^9.0.0",
-		"imagemin-mozjpeg": "^10.0.0",
-		"imagemin-pngquant": "^10.0.0",
-		"imagemin-svgo": "^11.0.1"
 	}
 }
