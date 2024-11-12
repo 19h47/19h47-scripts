@@ -1,6 +1,6 @@
 {
 	"name": "@19h47/scripts",
-	"version": "0.0.0-beta.18",
+	"version": "0.0.0-beta.19",
 	"description": "Configuration and scripts",
 	"keywords": [],
 	"homepage": "https://github.com/19h47/19h47-scripts#readme",
@@ -43,10 +43,6 @@
 		"file-loader": "^6.2.0",
 		"glob-all": "^3.3.1",
 		"image-minimizer-webpack-plugin": "^4.1.0",
-		"imagemin": "^9.0.0",
-		"imagemin-gifsicle": "^7.0.0",
-		"imagemin-optipng": "^8.0.0",
-		"imagemin-svgo": "^11.0.1",
 		"mini-css-extract-plugin": "^2.9.2",
 		"postcss": "^8.4.49",
 		"postcss-import": "^16.1.0",
@@ -70,6 +66,9 @@
 		"webpack-notifier": "^1.15.0"
 	},
 	"devDependencies": {
-		"imagemin-jpegtran": "^8.0.0"
+		"imagemin-gifsicle": "^7.0.0",
+		"imagemin-jpegtran": "^8.0.0",
+		"imagemin-optipng": "^8.0.0",
+		"imagemin-svgo": "^11.0.1"
 	}
 }
