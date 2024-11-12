@@ -85,7 +85,7 @@ module.exports = {
 						// Feel free to experiment with options for better result for you
 						plugins: [
 							["gifsicle", { interlaced: true }],
-							["jpegtran", { progressive: true }],
+							['jpegtran', { progressive: true }],
 							["optipng", { optimizationLevel: 5 }],
 							// Svgo configuration here https://github.com/svg/svgo#configuration
 							[
