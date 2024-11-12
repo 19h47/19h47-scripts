@@ -1,6 +1,6 @@
 {
 	"name": "@19h47/scripts",
-	"version": "0.0.0-beta.23",
+	"version": "0.0.0-beta.22",
 	"description": "Configuration and scripts",
 	"keywords": [],
 	"homepage": "https://github.com/19h47/19h47-scripts#readme",
@@ -68,5 +68,6 @@
 		"webpack-manifest-plugin": "5.0.0",
 		"webpack-merge": "^6.0.1",
 		"webpack-notifier": "^1.15.0"
-	}
+	},
+	"devDependencies": {}
 }
