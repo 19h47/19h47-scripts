@@ -27,13 +27,13 @@ module.exports = [
 	{
 		test: /\.(woff2?|eot|ttf|otf|woff|svg)?$/,
 		exclude: [/img/, /icons/],
-		type: 'asset',
+		type: 'asset/resource',
 		generator: {
 			filename: 'fonts/[hash][ext][query]',
 		},
 	},
 	{
-		test: /\.svg$/i,
+		test: /\.svg$/,
 		exclude: [/img/, /fonts/],
 		use: [
 			{
@@ -62,25 +62,25 @@ module.exports = [
 		],
 	},
 	{
-		test: /\.svg$/i,
+		test: /\.svg$/,
 		exclude: [/fonts/, /icons/],
-		type: 'asset',
+		type: 'asset/resource',
 		generator: {
 			filename: 'img/svg/[name][ext]',
 		},
 	},
 	{
-		test: /\.gif$/i,
+		test: /\.(gif)$/i,
 		exclude: [/animations/],
-		type: 'asset',
+		type: 'asset/resource',
 		generator: {
 			filename: 'img/gif/[name][ext]',
 		},
 	},
 	{
-		test: /\.png$/i,
+		test: /\.(png)$/i,
 		exclude: [/animations/],
-		type: 'asset',
+		type: 'asset/resource',
 		generator: {
 			filename: 'img/png/[name][ext]',
 		},
@@ -88,7 +88,7 @@ module.exports = [
 	{
 		test: /\.(jpe?g)$/i,
 		exclude: [/animations/],
-		type: 'asset',
+		type: 'asset/resource',
 		generator: {
 			filename: 'img/jpg/[name][ext]',
 		},
