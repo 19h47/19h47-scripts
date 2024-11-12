@@ -5,16 +5,16 @@
  * @author Jérémy Levron <jeremylevron@19h47.fr> (https://19h47.fr)
  */
 
-const { presets, plugins } = require('../.babelrc');
+const { presets, plugins } = require("../.babelrc");
 
 // Webpack Utils
-const { resolve } = require('./webpack.utils');
+const { resolve } = require("./webpack.utils");
 
 module.exports = [
 	{
 		test: /\.js$/,
 		exclude: /node_modules/,
-		loader: require.resolve('babel-loader'),
+		loader: require.resolve("babel-loader"),
 		options: {
 			babelrc: false,
 			configFile: false,
@@ -23,13 +23,13 @@ module.exports = [
 			plugins,
 		},
 	},
-	{ test: /\.vue$/, loader: require.resolve('vue-loader') },
+	{ test: /\.vue$/, loader: require.resolve("vue-loader") },
 	{
 		test: /\.(woff2?|eot|ttf|otf|woff|svg)?$/,
 		exclude: [/img/, /icons/],
-		type: 'asset',
+		type: "asset",
 		generator: {
-			filename: 'fonts/[hash][ext][query]',
+			filename: "fonts/[hash][ext][query]",
 		},
 	},
 	{
@@ -37,60 +37,66 @@ module.exports = [
 		exclude: [/img/, /fonts/],
 		use: [
 			{
-				loader: require.resolve('svg-sprite-loader'),
+				loader: require.resolve("svg-sprite-loader"),
 				options: {
-					spriteFilename: 'icons.svg',
+					spriteFilename: "icons.svg",
 					extract: true,
 				},
 			},
-			'svg-transform-loader',
-			'svgo-loader',
+			"svg-transform-loader",
+			"svgo-loader",
 		],
 	},
 	{
 		test: /\.(mp4|webm|ogg|mp3|wav|flac|aac|ogv)(\?.*)?$/,
 		use: [
 			{
-				loader: require.resolve('url-loader'),
+				loader: require.resolve("url-loader"),
 				options: {
 					limit: 100000,
-					name: '[name].[ext]',
-					publicPath: resolve('src/videos'),
-					outputPath: 'videos/',
+					name: "[name].[ext]",
+					publicPath: resolve("src/videos"),
+					outputPath: "videos/",
 				},
 			},
 		],
 	},
+
 	{
-		test: /\.svg$/i,
-		exclude: [/fonts/, /icons/],
-		type: 'asset',
-		generator: {
-			filename: 'img/svg/[name][ext]',
-		},
+		test: /\.(jpe?g|png|gif|svg)$/i,
+		type: "asset",
 	},
-	{
-		test: /\.gif$/i,
-		exclude: [/animations/],
-		type: 'asset',
-		generator: {
-			filename: 'img/gif/[name][ext]',
-		},
-	},
-	{
-		test: /\.png$/i,
-		exclude: [/animations/],
-		type: 'asset',
-		generator: {
-			filename: 'img/png/[name][ext]',
-		},
-	},
-	{
-		test: /\.(jpe?g)$/i,
-		exclude: [/animations/],
-		type: 'asset',
-		generator: {
-			filename: 'img/jpg/[name][ext]',
-		},
-	},
+
+	// {
+	// 	test: /\.svg$/i,
+	// 	exclude: [/fonts/, /icons/],
+	// 	type: 'asset',
+	// 	generator: {
+	// 		filename: 'img/svg/[name][ext]',
+	// 	},
+	// },
+	// {
+	// 	test: /\.gif$/i,
+	// 	exclude: [/animations/],
+	// 	type: 'asset',
+	// 	generator: {
+	// 		filename: 'img/gif/[name][ext]',
+	// 	},
+	// },
+	// {
+	// 	test: /\.png$/i,
+	// 	exclude: [/animations/],
+	// 	type: 'asset',
+	// 	generator: {
+	// 		filename: 'img/png/[name][ext]',
+	// 	},
+	// },
+	// {
+	// 	test: /\.(jpe?g)$/i,
+	// 	exclude: [/animations/],
+	// 	type: 'asset',
+	// 	generator: {
+	// 		filename: 'img/jpg/[name][ext]',
+	// 	},
+	// },
 ];
