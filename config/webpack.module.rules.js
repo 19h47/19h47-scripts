@@ -33,7 +33,7 @@ module.exports = [
 		},
 	},
 	{
-		test: /\.svg$/,
+		test: /\.svg$/i,
 		exclude: [/img/, /fonts/],
 		use: [
 			{
@@ -62,7 +62,7 @@ module.exports = [
 		],
 	},
 	{
-		test: /\.svg$/,
+		test: /\.svg$/i,
 		exclude: [/fonts/, /icons/],
 		type: 'asset',
 		generator: {
@@ -70,7 +70,7 @@ module.exports = [
 		},
 	},
 	{
-		test: /\.(gif)$/i,
+		test: /\.gif$/i,
 		exclude: [/animations/],
 		type: 'asset',
 		generator: {
@@ -78,7 +78,7 @@ module.exports = [
 		},
 	},
 	{
-		test: /\.(png)$/i,
+		test: /\.png$/i,
 		exclude: [/animations/],
 		type: 'asset',
 		generator: {
